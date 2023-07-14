@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GPA Calculator</title>
     <link rel="stylesheet" href="index.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8745111538374298"
+     crossorigin="anonymous"></script>
+    <title>GPA Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -80,12 +83,27 @@
             font-weight: bold;
         }
     </style>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8745111538374298" crossorigin="anonymous"></script>
 </head>
 <body>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8745111538374298"
+     crossorigin="anonymous"></script>
+<!-- SUPPORT -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8745111538374298"
+     data-ad-slot="6357186176"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     <h1>GPA Calculator</h1>
-    
+    <div id="arrearText" style="color: red; text-align: center;">
+    <p>If you have an arrear (if marks are below 50, it will be considered as 0),</p>
+    <p>please check after you have passed.</p>
+</div>
+
+
     <form id="marksForm">
         <h2>Subjects:</h2>
         <div>
@@ -151,11 +169,11 @@
     <div id="result"></div>
 
     <footer>
-        <span>Website created by Akshith Perakam<br>Please share with your Dhosthulu</br></span>
+        <span>Website created by Akshith Perakam<br>Please share with your Dhosthulu</br> </span>
     </footer>
 
     <script>
-        function validate_marks(marks, subject) {
+         function validate_marks(marks, subject) {
             if (subject === "Physics Lab") {
                 return marks <= 50;
             } else {
@@ -269,9 +287,9 @@
                     calculate_gpa(drawing, "Drawing") +
                     calculate_gpa(dataStructure, "Data Structure");
 
-                var lab_gp = calculate_gpa(fundamentalsLab, "Fundamentals and Digital Systems Lab") +
+                var lab_gp = + calculate_gpa(fundamentalsLab, "Fundamentals and Digital Systems Lab") +
                     calculate_gpa(dataStructureLab, "Data Structures Lab");
-                var lab1_gp = calculate_gpa(physicsLab, "Physics Lab");
+                var lab1_gp =  calculate_gpa(physicsLab, "Physics Lab");
                 var overall_gpa = (subject_gp * 3 + lab_gp * 2 + lab1_gp) / 23;
 
                 var result = document.getElementById("result");
