@@ -3,8 +3,8 @@ body {
   font-family: 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffff33; /* Bright yellow background */
-  color: #333; /* Default foreground color */
+  background-color: #063970; /* Update background color to #063970 */
+  color: #eab676; /* Update foreground color to #eab676 */
 }
 
 /* Rest of the CSS code remains the same */
@@ -12,18 +12,18 @@ h1 {
   font-size: 36px;
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #eab676; /* Update h1 color to #eab676 */
 }
 
 h2 {
   font-size: 30px;
   margin-top: 20px;
-  color: #333;
+  color: #eab676; /* Update h2 color to #eab676 */
 }
 
 form {
   background-color: #fff;
-  padding: 30px;
+  padding: 40px; /* Increase padding for larger input fields */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -32,13 +32,13 @@ label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #333;
+  color: #eab676; /* Update label color to #eab676 */
 }
 
 input[type="number"] {
   width: 100%;
-  padding: 16px;
-  border-radius: 5px;
+  padding: 20px; /* Increase padding for larger input fields */
+  border-radius: 10px; /* Increase border radius for rounded edges */
   border: 1px solid #ccc;
   box-sizing: border-box;
   outline: none;
@@ -59,12 +59,12 @@ input[type="number"]:focus {
 button[type="submit"] {
   display: block;
   width: 100%;
-  padding: 16px;
+  padding: 20px; /* Increase padding for larger button */
   margin-top: 20px;
   background-color: #4CAF50;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px; /* Increase border radius for rounded edges */
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 18px;
@@ -81,7 +81,7 @@ button[type="submit"]:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #333;
+  color: #eab676; /* Update result color to #eab676 */
 }
 
 footer {
@@ -93,12 +93,13 @@ footer {
 
 footer span {
   font-weight: bold;
-  color: #333;
+  color: #eab676; /* Update footer span color to #eab676 */
 }
 
 /* Additional Colorful Styles */
 body {
-  color: #ffff33; /* Bright yellow foreground */
+  background-color: #063970; /* Update background color to #063970 */
+  color: #eab676; /* Update foreground color to #eab676 */
 }
 
 /* Rest of the CSS code remains the same */
