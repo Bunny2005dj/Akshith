@@ -1,141 +1,123 @@
 /* Global Styles */
 body {
-  font-family: 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #063970; /* Update background color to #063970 */
-  color: #eab676; /* Update foreground color to #eab676 */
+    font-family: 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #063970;
+    color: #eab676;
 }
 
-/* Rest of the CSS code remains the same */
-h1 {
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #eab676; /* Update h1 color to #eab676 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-h2 {
-  font-size: 30px;
-  margin-top: 20px;
-  color: #eab676; /* Update h2 color to #eab676 */
+header {
+    background-color: #9E1C3F;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+header .sist {
+    font-style: italic; /* Set the font style to italic */
+    font-weight: bold; /* Set the font weight to bold */
+    color: #DF1C44;
+}
+
+header .calculator {
+    font-style: italic; /* Set the font style to italic */
+    font-weight: bold; /* Set the font weight to bold */
+    color: #2196f3;
+}
+
+main {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
-  background-color: #fff;
-  padding: 40px; /* Increase padding for larger input fields */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #eab676; /* Update label color to #eab676 */
+    flex: 1;
+    font-weight: bold;
+    color: #eab676;
 }
 
 input[type="number"] {
-  width: 100%;
-  padding: 20px; /* Increase padding for larger input fields */
-  border-radius: 10px; /* Increase border radius for rounded edges */
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.3s ease;
-  font-size: 18px;
+    flex: 2;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #1e88e5;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 18px;
 }
 
 input[type="number"]:focus {
-  border-color: #999;
-}
-
-.error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+    border-color: #999;
 }
 
 button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 20px; /* Increase padding for larger button */
-  margin-top: 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 10px; /* Increase border radius for rounded edges */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
 }
 
 button[type="submit"]:hover {
-  background-color: #388e3c;
+    background-color: #388e3c;
 }
 
-#result {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color: #eab676; /* Update result color to #eab676 */
+/* Result Box Styling */
+.result-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #777;
+/* Additional Styling for the Result Elements */
+.result {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: calc(50% - 10px);
+    background-color: #e0ffff; /* Set background color to whitish silver */
 }
 
-footer span {
-  font-weight: bold;
-  color: #eab676; /* Update footer span color to #eab676 */
+/* Additional Styling for the Overall Result Box */
+#overallResult {
+    width: 100%;
+    background-color: #e0ffff; /* Set background color to whitish silver */
 }
 
-/* Additional Colorful Styles */
-body {
-  background-color: #063970; /* Update background color to #063970 */
-  color: #eab676; /* Update foreground color to #eab676 */
-}
-
-/* Rest of the CSS code remains the same */
-h1 {
-  color: #2196f3;
-}
-
-form {
-  background-color: #ffffff;
-}
-
-label {
-  color: #1e88e5;
-}
-
-input[type="number"] {
-  border: 1px solid #1e88e5;
-}
-
-button[type="submit"] {
-  background-color: #4CAF50;
-}
-
-button[type="submit"]:hover {
-  background-color: #388e3c;
-}
-
-#result {
-  background-color: #ffffff;
-  color: #2196f3;
-}
-
-footer {
-  color: #1e88e5;
-}
-
-footer span {
-  color: #2196f3;
+/* Additional Styling for Headings */
+h2 {
+    color: #EAEAEA;
 }
