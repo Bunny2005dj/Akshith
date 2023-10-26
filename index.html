@@ -20,52 +20,991 @@
 <body>
     <div class="code-container">
         <pre>
-            thread using runnable interface
-            Import java.io.*;
-            class FirstThread implements Runnable
-            {
-                public void run()
-                {
-                    for (int i = 1; i <= 10; i++) {
-                        System.out.println("Message from First Thread : " + i);
-                        Try
-                        {
-                            Thread.sleep(1000);
-                        }
-                        catch (InterruptedException interruptedException) {
-                            System.out.println("First Thread is interrupted when it is sleeping" + interruptedException);
-                        }
-                    }
-                }
-            }
-            class SecondThread implements Runnable
-            {
-                public void run()
-                {
-                    for (int i = 1; i <= 10; i++) {
-                        System.out.println("Message from Second Thread : " + i);
-                        Try
-                        {
-                            Thread.sleep(1000);
-                        }
-                        catch (InterruptedException interruptedException) {
-                            System.out.println("Second Thread is interrupted when it is sleeping" + interruptedException);
-                        }
-                    }
-                }
-            }
-            class ThreadDemo
-            {
-                public static void main(String args[]) {
-                    FirstThread firstThread = new FirstThread();
-                    SecondThread secondThread = new SecondThread();
-                    Thread thread1 = new Thread(firstThread);
+Exp no: 1
+Exp name: CLASSES AND OBJECT
 
-                    thread1.start();
-                    Thread thread2 = new Thread(secondThread);
-                    thread2.start();
-                }
-            }
+/*program to find the factorial of a given number using classes and objects*/
+import java.io.*;
+import java.util.Scanner;
+class Factorial
+{
+void fact()
+{
+int fact=1,n,i;
+Scanner s=new Scanner(System.in);
+System.out.println("Enter a number to find the factorial of that number");
+n=s.nextInt();
+for(i=1;i<=n;i++)
+fact=fact*i;
+System.out.println("The factorial of a given number "+n+" is"+fact);
+}
+}
+class FactorialDemo
+{
+public static void main(String args[])
+{
+Factorial f= new Factorial();
+f.fact();
+}
+}
+
+
+
+
+
+
+Exp name: CONSTRUCTOR
+
+/* program to add 2 numbers using default constructor*/
+import java.io.*;
+import java.util.*;
+class Add
+{
+int a,b;
+Add()
+{
+a=10;
+b=10;
+}
+void show()
+{
+System.out.println("the sum of 2 numbers is "+(a+b));
+}
+public static void main(String args[])
+{
+Add ob=new Add();
+ob.show();
+}
+}
+
+
+
+EXP NAME : PARAMETER CONSTRUCTOR;
+
+/*program to add 2 numbers using parameter constructor*/
+import java.io.*;
+import java.util.*;
+class Add
+{
+int a,b;
+Add(int x,int y)
+{
+a=x;
+b=y;
+}
+void show()
+{
+System.out.println("the sum of 2 numbers is "+(a+b));
+}
+public static void main(String args[])
+{
+Add ob=new Add(20,30);
+ob.show();
+}
+}
+
+
+EXP NAME: CONSTRUCTOR OVERLOADING;
+
+
+/*program to add 2 numbers using constructor overloading*/
+import java.io.*;
+class Add
+{
+int a, b;
+Add(int x)
+{
+a=x;
+b=x;
+}
+Add(int a1,int b1)
+{
+a=a1;
+b=b1;
+}
+Add( Add c)
+{
+a=c.a*3;
+b=c.b-3;
+}
+void cal()
+{
+System.out.println("the sum of 2 numbers is "+(a+b));
+}
+public static void main(String args[])
+{
+Add c1=new Add(101);
+Add c2=new Add(10,14);
+Add c3=new Add(c2);
+c1.cal();
+c2.cal();
+c3.cal();
+}
+}
+
+
+
+Exp name:SINGLE Inheritance
+
+/*program to read to display student details using single inheritance*/
+import java.io.*;
+import java.util.Scanner;
+class Student
+{
+String name,dept;
+int id;
+Scanner s=new Scanner(System.in);
+void get()
+{
+System.out.println("Enter name");
+name=s.next();
+System.out.println("Enter id ");
+id=s.nextInt();
+System.out.println("Enter department");
+dept=s.next();
+}
+void show()
+{
+System.out.println("Student name:"+name);
+System.out.println("Department :"+dept);
+System.out.println("ID no :"+id);
+}
+}
+class Area extends College
+{
+String state,a;
+void gets()
+{
+System.out.println("Enter area");
+a=s.next();
+System.out.println("Enter state");
+state=s.next();
+}
+void show()
+{
+System.out.println("Area:"+a);
+System.out.println("State:"+state);
+}
+}
+class Details
+{
+public static void main(String args[])
+{
+Student c=new Student();
+Area a=new Area();
+c.get();
+a.gets();
+c.show();
+a.show();
+}
+}
+
+
+
+EXP NAME: MULITI LEVEL INHERITANCE;
+
+/*program to find the gross salary of an employee using multi level inheritance*/
+import java.io.*;
+import java.util.Scanner;
+class Employee
+{
+String name;
+int empid;
+double bp;
+Scanner s=new Scanner(System.in);
+void get()
+{
+System.out.println("Enter employee name");
+name=s.next();
+System.out.println("Enter employee id");
+empid=s.nextInt();
+System.out.println("Enter the basic pay of "+name);
+bp=s.nextDouble();
+}
+void show()
+{
+System.out.println("EMPLOYEE DETAIL");
+System.out.println("Name :"+name);
+System.out.println("Empid :"+empid);
+System.out.println("basic pay :"+bp);
+}
+}
+class Payment extends Employee
+{
+double gr,hra,da;
+void showpay()
+{
+da=0.1*bp;
+hra=0.12*bp;
+gr=bp+hra+da;
+System.out.println("DA :"+da);
+System.out.println("HRA :"+hra);
+System.out.println("Gross salary:"+gr);
+}
+}
+class Display extends Payment
+{
+void showall()
+{
+show();
+showpay();
+}
+}
+class Sample
+{
+public static void main(String args[])
+{
+Display ob=new Display();
+ob.get();
+ob.showall();
+}
+}
+
+
+
+EXP NAME: HIERACHEL INHERITANCE;
+
+/*program to compute customer balance from the bank using hierarchial inheritance*/
+import java.io.*;
+import java.util.Scanner;
+class Bank
+{
+String name;
+long acno;
+double bal;
+Scanner s=new Scanner(System.in);
+void get()
+{
+System.out.println("Enter bank name ");
+name=s.next();
+System .out.println("Enter acc no.");
+acno=s.nextLong();
+}
+void show()
+{
+System.out.println("bank name:"+name);
+System.out.println("acc no."+acno);
+}
+}
+class Deposit extends Bank
+{
+void dep(Bank b)
+{
+double dp;
+System.out.println("enter the amount to be deposited");
+dp=s.nextDouble();
+b.bal=b.bal+dp;
+b.show();
+System.out.println("after depositing ur account balance is "+b.bal);
+}
+}
+class Withdraw extends Bank
+{
+void withd(Bank b)
+{
+if(b.bal==0)
+System.out.println("deposit first...ur balance is"+b.bal);
+else
+{
+double w;
+System.out.println("enter the amount to withdraw");
+w=s.nextDouble();
+if(w>b.bal)
+{
+b.show();
+System.out.println("balance is low ..ur balance is "+b.bal);
+}
+else
+{
+b.bal=b.bal-w;
+System.out.println("ur balance after withdrawing is"+b.bal);
+}
+}
+}
+}
+class Balance
+{
+public static void main(String args[])
+{
+int n;
+Bank b1=new Bank();
+Deposit d=new Deposit();
+Withdraw w1=new Withdraw();
+b1.get();
+System.out.println("Current balance is "+b1.bal);
+System.out.println("1.deposit 2.withdraw");
+System.out.println("enter your choice");
+Scanner i=new Scanner(System.in);
+n=i.nextInt();
+if(n==1)
+d.dep(b1);
+else if(n==2)
+w1.withd(b1);
+else
+System.out.println("invalid choice");
+}
+}
+
+
+
+
+
+Exp name: Super keyword
+
+/*program to invoke base class constructor using super keyword*/
+import java.io.*;
+import java.util.*;
+class Addition
+{
+int a,b;
+Addition(int x,int y)
+{
+a=x;
+b=y;
+}
+void show()
+{
+System.out.println("The values are"+a+" and "+b);
+}
+}
+class Execute extends Addition
+{
+int c,sum;
+Execute(int x,int y,int z)
+{
+super(x,y);
+c=z;
+}
+void showc()
+{
+System.out.println("and "+c+" is");
+}
+void cal()
+{
+int sum=a+b+c;
+System.out.println("the sum of the given values is "+sum);
+}
+}
+class Demo
+{
+public static void main(String args[])
+{
+int a1,b1,c1;
+Scanner s=new Scanner(System.in);
+System.out.println("enter 3 values to add them");
+a1=s.nextInt();
+b1=s.nextInt();
+c1=s.nextInt();
+Execute e=new Execute(a1,b1,c1);
+e.show();
+e.showc();
+e.cal();
+}
+}
+
+
+
+EXP NAME : SUPER KEYWORD COLLEGE DETAILS
+/* program using super keyword to access method to display college details*/
+import java.io.*;
+import java.util.Scanner;
+class College
+{
+String name,add;
+int code;
+Scanner s=new Scanner(System.in);
+void get()
+{
+System.out.println("Enter college name");
+name=s.next();
+System.out.println("Enter counselling code of college");
+code=s.nextInt();
+System.out.println("Enter address");
+add=s.next();
+}
+void show()
+{
+System.out.println("College name:"+name);
+System.out.println("Address :"+add);
+System.out.println("counselling code :"+code);
+}
+}
+class Area extends College
+{
+String state,country;
+void gets()
+{
+System.out.println("Enter state");
+state=s.next();
+System.out.println("Enter country");
+country=s.next();
+}
+void show()
+{
+super.show();
+System.out.println("State:"+state);
+System.out.println("Country:"+country);
+}
+}
+class Details
+{
+public static void main(String args[])
+{
+Area a=new Area();
+a.get();
+a.gets();
+a.show();
+}
+}
+
+
+EXP NAME: SUPER KEYWORD ATTRIBUTE;
+
+/*program using super keyword to access the attribute*/
+import java.io.*;
+class Employee
+{
+float salary=10000;
+}
+class HR extends Employee
+{
+float salary=20000;
+void display()
+{
+System.out.println("Salary: "+super.salary);
+System.out.println("Salary: "+salary);
+}
+}
+class Super
+{
+public static void main(String[] args)
+{
+HR obj=new HR();
+obj.display();
+}
+}
+
+
+
+
+
+Exp name: Abstract class
+
+/*program to find the interest using abstract class*/
+import java.io.*;
+import java.util.Scanner;
+abstract class bank
+{
+abstract void roi();
+double bal,interest;
+long accountno;
+Scanner i = new Scanner(System.in);
+void getaccountno()
+{
+System.out.println("\nEnter the account number");
+accountno=i.nextLong();
+System.out.println("\nEnter the account balance");
+bal=i.nextDouble();
+}
+void printaccdetails()
+{
+roi();
+System.out.println("Account no:"+accountno);
+System.out.println("Interest Rate:"+interest);
+System.out.println("Balance after interest:"+bal);
+}
+}
+class Bank1 extends bank
+{
+void roi()
+{
+interest=0.07;
+bal=(bal+(bal*interest));
+}
+}
+class Bank2 extends bank
+{
+void roi()
+{
+interest=0.06;
+bal=(bal+(bal*interest));
+}
+}
+class Demo
+{
+public static void main(String args[]){
+Bank1 acc1= new Bank1();
+Bank2 acc2= new Bank2();
+acc1.getaccountno();
+acc1.printaccdetails();
+acc2.getaccountno();
+acc2.printaccdetails();
+}
+}
+
+
+
+
+Exp name: Interface
+
+/*program to find the area for different shapes using interface*/
+interface Area
+{
+double pi = 3.14;
+double calc(double x,double y);
+}
+class Rect implements Area
+{
+public double calc(double x,double y)
+{
+return(x*y);
+}
+}
+class Cir implements Area
+{
+public double calc(double x,double y)
+{
+return(pi*x*x);
+}
+}
+class Test
+{
+public static void main(String arg[])
+{
+Rect r = new Rect();
+Cir c = new Cir();
+Area a;
+a = r;
+System.out.println("\nArea of Rectangle is : " +a.calc(10,20));
+a = c;
+System.out.println("\nArea of Circle is : " +a.calc(15,15));
+}
+}
+
+
+
+
+
+
+Exp name : Simple Calculator
+
+/*program to create Custom package to implement calculator operations*/
+Add.java
+package p1;
+import java.util.*;
+public class Add
+{
+int s;
+public void sum()
+{
+System.out.print("Enter the first number: ");
+Scanner scan=new Scanner(System.in);
+int x=scan.nextInt();
+System.out.print("Enter the second number: ");
+Scanner scan1=new Scanner(System.in);
+int y=scan1.nextInt();
+s=x+y;
+System.out.println("sum="+s);
+}
+}
+Sub.java
+package p2;
+import java.util.*;
+public class Sub
+{
+int d;
+public void diff()
+{
+System.out.print("Enter the first number: ");
+Scanner scan=new Scanner(System.in);
+int x=scan.nextInt();
+System.out.print("Enter the second number: ");
+Scanner scan1=new Scanner(System.in);
+int y=scan1.nextInt();
+d=x-y;
+System.out.println("Difference="+d);
+}
+}
+Mult.java
+package p3;
+import java.util.*;
+public class Mult
+{
+int m;
+public void pro()
+{
+System.out.print("Enter the first number: ");
+Scanner scan=new Scanner(System.in);
+int x=scan.nextInt();
+System.out.print("Enter the second number: ");
+Scanner scan1=new Scanner(System.in);
+int y=scan1.nextInt();
+m=x*y;
+System.out.println("Product="+m);
+}
+}
+Div.java
+package p4;
+import java.util.*;
+public class Div
+{
+int q;
+public void divd()
+{
+System.out.print("Enter the first number: ");
+Scanner scan=new Scanner(System.in);
+int x=scan.nextInt();
+System.out.print("Enter the second number: ");
+Scanner scan1=new Scanner(System.in);
+int y=scan1.nextInt();
+q=x/y;
+System.out.println("Division="+q);
+}
+}
+Calculator.java
+package p5;
+//importing pre-defined package
+import java.util.*;
+//importing user-defined package
+import p1.Add;
+import p2.Sub;
+import p3.Mult;
+import p4.Div;
+public class Calculator
+{
+public static void main(String args[])
+{
+System.out.print("Enter your choice: ");
+Scanner scan=new Scanner(System.in);
+int t=scan.nextInt();
+switch(t)
+{
+case 1:
+Add a=new Add();
+a.sum();
+break;
+case 2:
+Sub s=new Sub();
+s.diff();
+break;
+case 3:
+Mult m=new Mult();
+m.pro();
+break;
+case 4:
+Div d=new Div();
+d.divd();
+break;
+}
+}
+}
+
+
+
+
+Exp name: Exception handling
+
+/*program to implement Exception handling and multiple catch block*/
+import java.io.*;
+import java.util.Scanner;
+class ExcepText
+{
+public static void main(String args[]) {
+try
+{
+int select;
+Scanner i= new Scanner(System.in);
+System.out.println("\nEnter the Exception to be Handled");
+System.out.println("\n1.ArrayIndexOutOfBoundsException\n2.ArithmeticException");
+System.out.println("3.NullException");
+select=i.nextInt();
+switch(select)
+{
+case 1://ArrayIndexOutOfBoundsException
+int a[] = new int[2];
+System.out.println("Access element three :" + a[3]);
+break;
+case 2://ArithmeticException
+int num1=30, num2=0;
+int output=num1/num2;
+System.out.println ("Result = " +output);
+break;
+case 3://NullPointerException
+String str=null;
+System.out.println (str.length());
+break;
+}
+}
+catch(ArrayIndexOutOfBoundsException e)
+{
+System.out.println("Exception thrown :" + e);
+}
+catch(ArithmeticException e1)
+{
+System.out.println("Exception thrown :" + e1);
+}
+catch(NullPointerException e2)
+{
+System.out.println("Exception thrown :" +e2);
+}
+System.out.println("Out of the block");
+}
+}
+
+
+
+
+Exp name : User defined Exception
+
+/*program that define user defined exception */
+//MyException.java
+public class MyException extends Exception {
+public MyException(String mymsg) {
+super(mymsg);
+}
+}
+//Sample.java
+import java.io.*;
+class Sample {
+public static void main(String args[]) throws Exception {
+Sample es = new Sample();
+es.displayMymsg();
+}
+public void displayMymsg() throws MyException {
+for(int j=8;j>0;j--) {
+System.out.println("j= "+j);
+if(j==7)
+throw new MyException("This is my own Custom Message");
+}
+}
+}
+
+
+
+
+Exp name: Thread by extending Thread class
+
+/*program to extend thread class*/
+Import java.io.*;
+class Test extends Thread
+{
+public void run()
+{
+for(int i=1;i<5;i++)
+{
+try
+{
+Thread.sleep(5000);
+}
+catch(InterruptedException e)
+{
+System.out.println(e);
+}
+System.out.println(i);
+}
+}
+public static void main(String args[])
+{
+Test t1=new Test();
+Test t2=new Test();
+t1.start();
+t2.start();
+}
+}
+
+
+
+
+
+Exp name: implementing thread by Runnable interface
+
+/*program to implement the concept of threading by implementing Runnable interface*/
+Import java.io.*;
+class FirstThread implements Runnable
+{
+public void run()
+{
+for ( int i=1; i<=10; i++){
+System.out.println( "Message from First Thread : " +i);
+Try
+{
+Thread.sleep (1000);
+}
+catch (InterruptedException interruptedException){
+System.out.println( "First Thread is interrupted when it is sleeping" +interruptedException);
+}
+}
+}
+}
+class SecondThread implements Runnable
+{
+public void run(){
+for ( int i=1; i<=10; i++)
+{
+System.out.println( "Message from Second Thread : " +i);
+Try
+{
+Thread.sleep(1000);
+}
+catch (InterruptedException interruptedException)
+{
+System.out.println( "Second Thread is interrupted when it is sleeping" +interruptedException);
+}
+}
+}
+class ThreadDemo
+{
+public static void main(String args[]){
+FirstThread firstThread = new FirstThread();
+SecondThread secondThread = new SecondThread();
+Thread thread1 = new Thread(firstThread);
+thread1.start();
+Thread thread2 = new Thread(secondThread);
+thread2.start();
+}
+}
+
+
+
+
+
+Exp name: Clonnable class
+
+/*program to create copy of a given object using Clonable interface*/
+class Student implements Cloneable{
+int rollno;
+String name;
+Student18(int rollno,String name){
+this.rollno=rollno;
+this.name=name;
+}
+public Object clone()throws CloneNotSupportedException{
+return super.clone();
+}
+public static void main(String args[]){
+try{
+Student s1=new Student(101,"amit");
+Student s2=(Student)s1.clone();
+System.out.println(s1.rollno+" "+s1.name);
+System.out.println(s2.rollno+" "+s2.name);
+}catch(CloneNotSupportedException c){}
+}
+}
+
+
+
+
+
+Exp name: Wrapper class
+
+/*program to implement Wrapper class*/
+Import java.io.*;
+class WrapperExample1
+{
+public static void main(String args[])
+{
+//Converting int into Integer
+int a=20;
+float b=56.3f;
+Integer i=Integer.valueOf(a);
+Integer j=a;
+Float i1=Float.valueOf(b);
+Float j1=b;
+System.out.println(a+" "+i+" "+j);
+System.out.println(b+" "+i1+" "+j1);
+}
+}
+
+
+
+
+
+
+Exp name: Files
+
+/*program to implement FileInputStream and FileOutputStream*/
+
+import java.io.*;
+public class CopyFile
+{
+public static void main(String args[]) throws IOException
+{
+FileInputStream in = null;
+FileOutputStream out = null;
+try
+{
+in = new FileInputStream("input.txt");
+out = new FileOutputStream("output.txt");
+int c;
+while ((c = in.read()) != -1)
+{
+out.write(c);
+}
+}
+finally
+{
+if (in != null)
+{
+in.close();
+}
+if (out != null)
+{
+out.close();
+}
+}
+}
+}
+
+
+
+
+EXP NAME:FILE READER AND FILE WRITER;
+
+
+/*program to implement FileReader and FileWriter class*/
+
+import java.io.*;
+public class CopyFile {
+public static void main(String args[]) throws IOException {
+FileReader in = null;
+FileWriter out = null;
+try {
+in = new FileReader("input.txt");
+out = new FileWriter("output.txt");
+int c;
+while ((c = in.read()) != -1)
+out.write(c);
+}
+finally
+{
+if (in != null)
+in.close();
+if (out != null)
+out.close();
+}
+}
+}
+
+
+
+EXP NAME: DATA INPUT AND OUTPUT;
+
+/*program to implemrnt DataInputStream and DataOutputStream*/
+
+import java.io.*;
+public class DataInput_Stream {
+public static void main(String args[])throws IOException {
+// writing string to a file encoded as modified UTF-8
+DataOutputStream dataOut = new DataOutputStream(new FileOutputStream("E:\\file.txt"));
+dataOut.writeUTF("hello");
+// Reading data from the same file
+DataInputStream dataIn = new DataInputStream(new FileInputStream("E:\\file.txt"));
+while(dataIn.available()>0) {
+String k = dataIn.readUTF();
+System.out.print(k+" ");
+}
+}
+}
         </pre>
     </div>
 </body>
