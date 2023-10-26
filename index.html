@@ -1,392 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA Calculator</title>
-    <link rel="stylesheet" href="index.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8745111538374298"
-            crossorigin="anonymous"></script>
+    <title>Thread Implementation</title>
+    <style>
+        .code-container {
+            text-align: center;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            white-space: pre-wrap;
+            font-size: 16px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1><span class="sist">SIST</span> <span class="calculator">GPA Calculator</span></h1>
+    <div class="code-container">
+        <pre>
+            Import java.io.*;
+            class FirstThread implements Runnable
+            {
+                public void run()
+                {
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println("Message from First Thread : " + i);
+                        Try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch (InterruptedException interruptedException) {
+                            System.out.println("First Thread is interrupted when it is sleeping" + interruptedException);
+                        }
+                    }
+                }
+            }
+            class SecondThread implements Runnable
+            {
+                public void run()
+                {
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println("Message from Second Thread : " + i);
+                        Try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch (InterruptedException interruptedException) {
+                            System.out.println("Second Thread is interrupted when it is sleeping" + interruptedException);
+                        }
+                    }
+                }
+            }
+            class ThreadDemo
+            {
+                public static void main(String args[]) {
+                    FirstThread firstThread = new FirstThread();
+                    SecondThread secondThread = new SecondThread();
+                    Thread thread1 = new Thread(firstThread);
 
-        <div id="arrearText" class="error-text">
-            <p>If you have an arrear (if marks are below 50, it will be considered as 0),</p>
-            <p>please check after you have passed.</p>
-        </div>
-
-        <form id="marksForm">
-            <!-- Semester 1 -->
-            <h2>Semester 1 Marks:</h2>
-            <div>
-                <label for="maths1">Maths 1:</label>
-                <input type="number" id="maths1" name="maths1" min="0" max="100" required>
-                <span id="maths1Error" class="error"></span>
-            </div>
-            <div>
-                <label for="chemistry">Chemistry:</label>
-                <input type="number" id="chemistry" name="chemistry" min="0" max="100" required>
-                <span id="chemistryError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="pst">PST using C and C++:</label>
-                <input type="number" id="pst" name="pst" min="0" max="100" required>
-                <span id="pstError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="english">English:</label>
-                <input type="number" id="english" name="english" min="0" max="100" required>
-                <span id="englishError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="eee">EEE:</label>
-                <input type="number" id="eee" name="eee" min="0" max="100" required>
-                <span id="eeeError" class="error"></span>
-            </div>
-
-            <!-- Semester 2 -->
-            <h2>Semester 2 Marks:</h2>
-            <div>
-                <label for="fundamentals">Fundamentals and Digital Systems:</label>
-                <input type="number" id="fundamentals" name="fundamentals" min="0" max="100" required>
-                <span id="fundamentalsError" class="error"></span>
-            </div>
-            <div>
-                <label for="python">Python:</label>
-                <input type="number" id="python" name="python" min="0" max="100" required>
-                <span id="pythonError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="maths">Maths 2:</label>
-                <input type="number" id="maths" name="maths" min="0" max="100" required>
-                <span id="mathsError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="physics">Physics:</label>
-                <input type="number" id="physics" name="physics" min="0" max="100" required>
-                <span id="physicsError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="drawing">Drawing:</label>
-                <input type="number" id="drawing" name="drawing" min="0" max="100" required>
-                <span id="drawingError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="dataStructure">Data Structure:</label>
-                <input type="number" id="dataStructure" name="dataStructure" min="0" max="100" required>
-                <span id="dataStructureError" class="error"></span>
-            </div>
-
-            <!-- Semester 1 Labs -->
-            <h2>Labs (Semester 1):</h2>
-            <div>
-                <label for="pstLab">PST Lab:</label>
-                <input type="number" id="pstLab" name="pstLab" min="0" max="100" required>
-                <span id="pstLabError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="chemistryLab">Chemistry Lab:</label>
-                <input type="number" id="chemistryLab" name="chemistryLab" min="0" max="50" required>
-                <span id="chemistryLabError" class="error"></span>
-            </div>
-
-
-            <!-- Semester 2 Labs -->
-            <h2>Labs (Semester 2):</h2>
-            <div>
-                <label for="physicsLab">Physics Lab:</label>
-                <input type="number" id="physicsLab" name="physicsLab" min="0" max="50" required>
-                <span id="physicsLabError" class="error"></span>
-            </div>
-            <div>
-                <label for="dataStructureLab">Data Structures Lab:</label>
-                <input type="number" id="dataStructureLab" name="dataStructureLab" min="0" max="100" required>
-                <span id="dataStructureLabError" class="error"></span>
-            </div>
-
-            <div>
-                <label for="fundamentalsLab">Fundamentals and Digital Systems Lab:</label>
-                <input type="number" id="fundamentalsLab" name="fundamentalsLab" min="0" max="100" required>
-                <span id="fundamentalsLabError" class="error"></span>
-            </div>
-<!-- GPA Results -->
-<div class="result-box">
-  <div id="result1" class="result">Semester 1 GPA: 0.00</div>
-  <div id="result2" class="result">Semester 2 GPA: 0.00</div>
-</div>
-
-<!-- Overall GPA -->
-<div id="overallResult" class="result">Overall GPA for First Year: 0.00</div>
-
-
-            <button type="submit">Calculate GPA (Scroll Down)</button>
-        </form>
-
-       
-
-        <footer>
-            <span>Website created by Akshith Perakam<br>Please share with your Dhosthulu</br></span>
-        </footer>
+                    thread1.start();
+                    Thread thread2 = new Thread(secondThread);
+                    thread2.start();
+                }
+            }
+        </pre>
     </div>
-
-    <script>
-           function validate_marks(marks, subject) {
-    if (subject === "Physics Lab" || subject === "Chemistry Lab") {
-        return marks <= 50;
-    } else {
-        return marks <= 100;
-    }
-}
-function calculate_gpa(marks, subject, isLab = false) {
-    if (isLab && (subject === "Physics Lab" || subject === "Chemistry Lab")) {
-        marks *= 2;
-    }
-
-    if (marks >= 90) {
-        return 10;
-    } else if (marks >= 80) {
-        return 9;
-    } else if (marks >= 70) {
-        return 8;
-    } else if (marks >= 60) {
-        return 7;
-    } else if (marks >= 50) {
-        return 6;
-    } else {
-        return 0;
-    }
-}
-
-   
- function calculateOverallGPA(gpaSem1, gpaSem2) {
-        // Calculate the overall GPA for the first year by taking the average of the two semesters' GPAs
-        var overallGPA = (gpaSem1 + gpaSem2) / 2;
-
-        // Display the overall GPA in a separate box
-        var overallResult = document.getElementById("overallResult");
-        overallResult.textContent = "Overall GPA for First Year: " + parseFloat(overallGPA.toFixed(2));
-        overallResult.style.display = "block";
-    }
-function displayGPA() {
-    // Fetch input values for Semester 1
-    var maths1 = parseInt(document.getElementById("maths1").value);
-    var chemistry = parseInt(document.getElementById("chemistry").value);
-    var pst = parseInt(document.getElementById("pst").value);
-    var english = parseInt(document.getElementById("english").value);
-    var eee = parseInt(document.getElementById("eee").value);
-
-    // Fetch input values for Semester 2
-    var fundamentals = parseInt(document.getElementById("fundamentals").value);
-    var python = parseInt(document.getElementById("python").value);
-    var maths = parseInt(document.getElementById("maths").value);
-    var physics = parseInt(document.getElementById("physics").value);
-    var drawing = parseInt(document.getElementById("drawing").value);
-    var dataStructure = parseInt(document.getElementById("dataStructure").value);
-
-    // Fetch input values for Semester 1 Labs
-    var pstLab = parseInt(document.getElementById("pstLab").value);
-    var chemistryLab = parseInt(document.getElementById("chemistryLab").value);
-
-    // Fetch input values for Semester 2 Labs
-    var physicsLab = parseInt(document.getElementById("physicsLab").value);
-    var dataStructureLab = parseInt(document.getElementById("dataStructureLab").value);
-    var fundamentalsLab = parseInt(document.getElementById("fundamentalsLab").value);
-
-    // Reset error messages
-    var maths1Error = document.getElementById("maths1Error");
-    var chemistryError = document.getElementById("chemistryError");
-    var pstError = document.getElementById("pstError");
-    var englishError = document.getElementById("englishError");
-    var eeeError = document.getElementById("eeeError");
-    var fundamentalsError = document.getElementById("fundamentalsError");
-    var pythonError = document.getElementById("pythonError");
-    var mathsError = document.getElementById("mathsError");
-    var physicsError = document.getElementById("physicsError");
-    var drawingError = document.getElementById("drawingError");
-    var dataStructureError = document.getElementById("dataStructureError");
-    var pstLabError = document.getElementById("pstLabError");
-    var chemistryLabError = document.getElementById("chemistryLabError");
-    var physicsLabError = document.getElementById("physicsLabError");
-    var dataStructureLabError = document.getElementById("dataStructureLabError");
-    var fundamentalsLabError = document.getElementById("fundamentalsLabError");
-
-    maths1Error.textContent = "";
-    chemistryError.textContent = "";
-    pstError.textContent = "";
-    englishError.textContent = "";
-    eeeError.textContent = "";
-    fundamentalsError.textContent = "";
-    pythonError.textContent = "";
-    mathsError.textContent = "";
-    physicsError.textContent = "";
-    drawingError.textContent = "";
-    dataStructureError.textContent = "";
-    pstLabError.textContent = "";
-    chemistryLabError.textContent = "";
-    physicsLabError.textContent = "";
-    dataStructureLabError.textContent = "";
-    fundamentalsLabError.textContent = "";
-
-    var isValid = true;
-
-    // Validate Semester 1 marks
-    if (!validate_marks(maths1, "Maths 1")) {
-        maths1Error.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(chemistry, "Chemistry")) {
-        chemistryError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(pst, "PST using C and C++")) {
-        pstError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(english, "English")) {
-        englishError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(eee, "EEE")) {
-        eeeError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    // Validate Semester 2 marks
-    if (!validate_marks(fundamentals, "Fundamentals and Digital Systems")) {
-        fundamentalsError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(python, "Python")) {
-        pythonError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(maths, "Maths 2")) {
-        mathsError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(physics, "Physics")) {
-        physicsError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(drawing, "Drawing")) {
-        drawingError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(dataStructure, "Data Structure")) {
-        dataStructureError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    // Validate Semester 1 Labs marks
-    if (!validate_marks(pstLab, "PST Lab", true)) {
-        pstLabError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(chemistryLab, "Chemistry Lab", true)) {
-        chemistryLabError.textContent = "Invalid marks! Enter a value between 0 and 50.";
-        isValid = false;
-    }
-
-    // Validate Semester 2 Labs marks
-    if (!validate_marks(physicsLab, "Physics Lab", true)) {
-        physicsLabError.textContent = "Invalid marks! Enter a value between 0 and 50.";
-        isValid = false;
-    }
-
-    if (!validate_marks(dataStructureLab, "Data Structures Lab", true)) {
-        dataStructureLabError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (!validate_marks(fundamentalsLab, "Fundamentals and Digital Systems Lab", true)) {
-        fundamentalsLabError.textContent = "Invalid marks! Enter a value between 0 and 100.";
-        isValid = false;
-    }
-
-    if (isValid) {
-        // Calculate GPAs for both semesters
-        var subject_gp_sem1 = calculate_gpa(maths1, "Maths 1") +
-            calculate_gpa(chemistry, "Chemistry") +
-            calculate_gpa(pst, "PST using C and C++") +
-            calculate_gpa(english, "English") +
-            calculate_gpa(eee, "EEE");
-
-        var lab_gp_sem1 = calculate_gpa(pstLab, "PST Lab", true)*2 +
-            calculate_gpa(chemistryLab, "Chemistry Lab", true);
-
-        var subject_gp_sem2 = calculate_gpa(fundamentals, "Fundamentals and Digital Systems") +
-            calculate_gpa(python, "Python") +
-            calculate_gpa(maths, "Maths 2") +
-            calculate_gpa(physics, "Physics") +
-            calculate_gpa(drawing, "Drawing") +
-            calculate_gpa(dataStructure, "Data Structure");
-
-        var lab_gp_sem2 = calculate_gpa(fundamentalsLab, "Fundamentals and Digital Systems Lab", true) +
-            calculate_gpa(dataStructureLab, "Data Structures Lab", true);
-
-        var lab1_gp_sem2 = calculate_gpa(physicsLab, "Physics Lab", true);
-
-        // Calculate overall GPAs for both semesters
-        var overall_gpa_sem1 = (subject_gp_sem1 * 3 + lab_gp_sem1) / 18;
-        var overall_gpa_sem2 = (subject_gp_sem2 * 3 + lab_gp_sem2 * 2 + lab1_gp_sem2) / 23;
-
-
-   
-            // Display the results for Semester 1 and Semester 2 GPAs
- var result1 = document.getElementById("result1");
-    result1.textContent = "Semester 1 GPA: " + parseFloat(overall_gpa_sem1.toFixed(2));
-    result1.style.display = "block";
-
-    var result2 = document.getElementById("result2");
-    result2.textContent = "Semester 2 GPA: " + parseFloat(overall_gpa_sem2.toFixed(2));
-    result2.style.display = "block";
-
-    // Calculate and display the overall GPA for the first year
-    var overallResult = document.getElementById("overallResult");
-    var overallGPA = (overall_gpa_sem1 + overall_gpa_sem2) / 2;
-    overallResult.textContent = "Overall GPA for First Year: " + parseFloat(overallGPA.toFixed(2));
-    overallResult.style.display = "block";
-           
-            // Calculate and display the overall GPA for the first year
-            calculateOverallGPA(overall_gpa_sem1, overall_gpa_sem2);
-        } else {
-            // Hide the result elements and overallResult element if there are errors
-            var result1 = document.getElementById("result1");
-            result1.style.display = "none";
-
-            var result2 = document.getElementById("result2");
-            result2.style.display = "none";
-
-            var overallResult = document.getElementById("overallResult");
-            overallResult.style.display = "none";
-        }
-    }
-
-    var marksForm = document.getElementById("marksForm");
-    marksForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        displayGPA();
-   
-    });
-    </script>
 </body>
 </html>
