@@ -1,27 +1,320 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Thread Implementation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Display</title>
     <style>
-        .code-container {
-            text-align: center;
-        }
-
         pre {
             background-color: #f4f4f4;
-            padding: 10px;
             border: 1px solid #ccc;
-            white-space: pre-wrap;
-            font-size: 16px;
-            text-align: left;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            display: block;
+            font-family: Consolas, 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
-    <div class="code-container">
-        <pre>
-          <a href="https://drive.google.com/drive/folders/1-vb9Yk_SgLAJG9poHIEfN6B95bATJM9U">Download PDF</a>
-       </pre>
-    </div>
+    <pre>
+        <a href="https://drive.google.com/file/d/1D4mLE4Dv5AgEF29Be2jc2Pj1-yIh-Ab3/view?usp=drive_link">pdf1</a>
+        <br>
+        <a href="https://drive.google.com/file/d/1N9L3pLRiznw5u-8_cMGlUNfZu9NaOqbm/view?usp=drive_link">pdf2</a>
+        <br>
+        <a href="https://drive.google.com/file/d/13bCLh7xuEv8vh9iiKFq4rjgH3SwPqLtp/view?usp=drive_link">pdf3</a>
+    </pre>
+    <h1>Given an array of string words and a width maxWidth</h1>
+    <pre><code>
+        import java.util.Scanner ;
+        import java.util.List ;
+        import java.util.ArrayList ;
+        
+        class Main {
+            public static List<String> fullJustify(String[] words, int maxWidth) {
+                List<String> res = new ArrayList<>();
+                int currSum = 0;    // Current sum of total characters.
+                List<String> currList = new ArrayList<>();
+                for(int i = 0; i < words.length; i++) {
+                    if(currSum + words[i].length() + currList.size() <= maxWidth) {
+                        currList.add(words[i]);
+                        currSum += words[i].length();
+                    } else {
+                        int n = currList.size();    // Number of words in this line.
+                        int numSpace = maxWidth - currSum;
+                        StringBuffer sb = new StringBuffer();
+                        if(n != 1) {
+                            int a = numSpace / (n - 1); // Basic number of spaces between words.
+                            int b = numSpace - a * (n - 1); // Number of slots which need extra one space.
+                            for(int j = 0; j < currList.size(); j++) {
+                                sb.append(currList.get(j));
+                                if(j < b) {
+                                    for(int k = 0; k < a + 1; k++)
+                                        sb.append(" ");
+                                } else if(j != currList.size() - 1) {
+                                    for(int k = 0; k < a; k++)
+                                        sb.append(" ");
+                                }
+                            }
+                        } else {
+                            sb.append(currList.get(0));
+                            while(sb.length() < maxWidth)
+                                sb.append(" ");
+                        }
+                        res.add(sb.toString());
+                        currList = new ArrayList<>();
+                        currList.add(words[i]);
+                        currSum = words[i].length();
+                    }
+                }
+                // For last line.
+                if(currList.size() != 0) {
+                    StringBuffer sb = new StringBuffer();
+                    for(int i = 0; i < currList.size(); i++) {
+                        sb.append(currList.get(i));
+                        if(i != currList.size() - 1)
+                            sb.append(" ");
+                    }
+                    while(sb.length() < maxWidth)
+                        sb.append(" ");
+                    res.add(sb.toString());
+                }
+                return res;
+            }
+            public static void main(String a[]) {
+                Scanner sc = new Scanner(System.in) ;
+                int n = sc.nextInt() ;
+                String words[] = new String[n] ;
+                for(int i = 0 ; i < n ; i++)
+                    words[i] = sc.next() ;
+                int maxWidth = sc.nextInt() ;
+                System.out.print( fullJustify(words, maxWidth).toString() ) ;
+            }
+        }    
+    </code></pre>
+    <h1>You have been given three arrays A, B, and C in sorted forma</h1>
+    <pre><code>
+        import sys
+ 
+        def findMinRange(a, b, c):
+         
+          
+            pair = ()
+         
+           
+            diff = sys.maxsize
+         
+           
+            for i in range(len(a)):
+                for j in range(len(b)):
+                    for k in range(len(c)):
+                       
+                        low = min(min(a[i], b[j]), c[k])
+                        high = max(max(a[i], b[j]), c[k])
+         
+                       
+                        if diff > high - low:
+                            pair = (low, high)
+                            diff = high - low
+         
+            return pair
+         
+         
+        if __name__ == '__main__':
+         
+            a=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                a.append(ele)
+        
+            b=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                b.append(ele)
+        
+            c=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                c.append(ele)
+        
+         
+            pair = findMinRange(a, b, c)
+            print(pair)    
+        </code></pre>
+        <h1>Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the combined sorted array.</h1>
+        <pre><code>
+            # You are using Python
+            def fmosa(m, nums1, n, nums2):
+                merged = []
+                i, j = 0, 0
+                while i &lt; m and j &lt; n:
+                    if nums1[i] &lt; nums2[j]:
+                        merged.append(nums1[i])
+                        i += 1
+                    else:
+                        merged.append(nums2[j])
+                        j += 1
+                merged.extend(nums1[i:])
+                merged.extend(nums2[j:])
+                total_len = len(merged)
+                if total_len % 2 == 1:
+                    return round(merged[total_len // 2], 1)
+                else:
+                    mid1, mid2 = total_len // 2 - 1, total_len // 2
+                    return round((merged[mid1] + merged[mid2]) / 2.0, 1)
+            
+            m = int(input().strip())
+            nums1 = list(map(int, input().strip().split()))
+            n = int(input().strip())
+            nums2 = list(map(int, input().strip().split()))
+            median = fmosa(m, nums1, n, nums2)
+            print(f"{median:.1f}")
+                </code></pre>
+                <pre><code>
+        import sys
+ 
+        def findMinRange(a, b, c):
+         
+          
+            pair = ()
+         
+           
+            diff = sys.maxsize
+         
+           
+            for i in range(len(a)):
+                for j in range(len(b)):
+                    for k in range(len(c)):
+                       
+                        low = min(min(a[i], b[j]), c[k])
+                        high = max(max(a[i], b[j]), c[k])
+         
+                       
+                        if diff > high - low:
+                            pair = (low, high)
+                            diff = high - low
+         
+            return pair
+         
+         
+        if __name__ == '__main__':
+         
+            a=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                a.append(ele)
+        
+            b=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                b.append(ele)
+        
+            c=[]
+            n=int(input())
+            for x in range(0,n):
+                ele=int(input())
+                c.append(ele)
+        
+         
+            pair = findMinRange(a, b, c)
+            print(pair)    
+        </code></pre>
+        <h1>Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the combined sorted array.</h1>
+        <pre><code>
+            # You are using Python
+            def fmosa(m, nums1, n, nums2):
+                merged = []
+                i, j = 0, 0
+                while i &lt; m and j &lt; n:
+                    if nums1[i] &lt; nums2[j]:
+                        merged.append(nums1[i])
+                        i += 1
+                    else:
+                        merged.append(nums2[j])
+                        j += 1
+                merged.extend(nums1[i:])
+                merged.extend(nums2[j:])
+                total_len = len(merged)
+                if total_len % 2 == 1:
+                    return round(merged[total_len // 2], 1)
+                else:
+                    mid1, mid2 = total_len // 2 - 1, total_len // 2
+                    return round((merged[mid1] + merged[mid2]) / 2.0, 1)
+            
+            m = int(input().strip())
+            nums1 = list(map(int, input().strip().split()))
+            n = int(input().strip())
+            nums2 = list(map(int, input().strip().split()))
+            median = fmosa(m, nums1, n, nums2)
+            print(f"{median:.1f}")
+                </code></pre>
+                <h1>Given a number, find its corresponding Roman numeral. </h1>
+                <code><pre>
+                    // You are using Java
+                    import java.util.*;
+                    class Roman{
+                        public static String intoToRoman(int num)
+                        {
+                            String roman="";
+                            int[] values={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+                            String[] romanletter={
+                                "M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+                            for(int i=0;i<values.length;i++)
+                            {
+                                while(num>=values[i])
+                                {
+                                    roman=roman+romanletter[i];
+                                    num=num-values[i];
+                                }
+                            }
+                            return roman;
+                        }
+                        public static void main(String args[])
+                        {
+                            Scanner scanner=new Scanner(System.in);
+                            int num=scanner.nextInt();
+                            System.out.println("Roman Numeral of Integer is:"+intoToRoman(num));
+                        }
+                    }
+                </code></pre>
+                <h1>number of occurences of digit 3</h1>
+                <code><pre>
+                    u = int(input())
+                    a = int(input())
+                    
+                    c = 0
+                    
+                    for i in range(1, u + 1):
+                        n = i
+                        while n > 0:
+                            t = n % 10
+                            if t == a:
+                                c += 1
+                            n = n // 10
+                    
+                    print(c)
+                
+                </code></pre>
+                <h1>convert into corresponding excel</h1>
+                <code><pre>
+                    def inte(m):
+                    c = ""
+                    while m > 0:
+                        m -= 1
+                        c = chr(m % 26 + 65) + c
+                        m //= 26
+                    return c
+                
+                n = int(input())
+                print(inte(n))
+                
+                </code></pre>
+
 </body>
 </html>
