@@ -402,6 +402,29 @@ Shift + F3: Change case (upper/lower)
                 print(inte(n))
                 
                 </code></pre>
+                <h1>Maximum possible difference between two subsets of the array</h1>
+                <code><pre>
+                    def is_match(pattern, text):
+    if not pattern:
+        return not text
+    if pattern[0] == '*':
+        # '*' can match zero characters (move pattern forward) or one character (move text forward)
+        return is_match(pattern[1:], text) or (text and is_match(pattern, text[1:]))
+    if pattern[0] == '?' or (text and pattern[0] == text[0]):
+        # '?' matches one character or exact match of characters
+        return is_match(pattern[1:], text[1:])
+    return False
+
+pattern = input().strip()
+text = input().strip()
+
+print(f"Second string: {text}")
+if is_match(pattern, text):
+    print("The strings match")
+else:
+    print("The strings do not match")
+
+                </code></pre>
 
 </body>
 </html>
